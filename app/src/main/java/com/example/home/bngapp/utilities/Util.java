@@ -1,7 +1,10 @@
 package com.example.home.bngapp.utilities;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
+
+import com.example.home.bngapp.R;
 
 /**
  * Created by Home on 6/7/2016.
@@ -60,6 +63,19 @@ public class Util extends Activity{
         setContext(activity);
         // set activity to activity
         setActivity(activity);
+    }
+
+    /**
+     * Function to add / replace fragment
+     *
+     * @param fragment - new fragment
+     * @param tag      - tag to add along with the fragment to the back stack
+     */
+    public static void replaceFragment(Fragment fragment, int tag) {
+        // replace fragment in container
+        getActivity().getFragmentManager().beginTransaction().replace(R.id.viewpager,
+                fragment, tag + "").addToBackStack(tag + "").commit();
+
     }
 
 

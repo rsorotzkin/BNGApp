@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.home.bngapp.fragments.AboutFragment;
 import com.example.home.bngapp.fragments.BngLoveFragment;
+import com.example.home.bngapp.fragments.GiftDetailsFragment;
 import com.example.home.bngapp.fragments.GiftsFragment;
 import com.example.home.bngapp.fragments.HomeFragment;
 import com.example.home.bngapp.fragments.MenuFragment;
@@ -26,11 +27,14 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private CustomViewPager viewPager;
+    public GiftDetailsFragment giftDetailsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        giftDetailsFragment = new GiftDetailsFragment();
+        giftDetailsFragment.setMainActivity(this);
 
         initializeViews();
         setupTabIcons();
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
      * Function to initialize controls
      */
     public void initializeViews() {
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

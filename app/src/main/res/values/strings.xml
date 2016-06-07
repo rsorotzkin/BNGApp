@@ -2,4 +2,9 @@
     <string name="app_name">BNGApp</string>
     <string name="action_settings">Settings</string>
     <string name="image_description">image description</string>
+    <string name="fragment_home">BNG</string>
+    <string name="fragment_menu">Menu and Platters</string>
+    <string name="fragment_gifts">Baskets N Gifts</string>
+    <string name="fragment_bnglove">BNGlove</string>
+    <string name="fragment_about">About</string>
 </resources>
