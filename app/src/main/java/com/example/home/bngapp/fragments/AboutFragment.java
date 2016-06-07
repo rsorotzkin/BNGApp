@@ -1,4 +1,4 @@
-package com.example.home.bngapp.fragments2;
+package com.example.home.bngapp.fragments;
 
 /**
  * Created by Home on 6/6/2016.
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import com.example.home.bngapp.R;
 
 
-public class BngLoveFragment extends Fragment{
+public class AboutFragment extends Fragment{
 
-    public BngLoveFragment() {
+    public AboutFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class BngLoveFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bnglove, container, false);
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 
 }

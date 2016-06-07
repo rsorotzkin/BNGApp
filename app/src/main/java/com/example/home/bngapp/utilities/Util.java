@@ -1,4 +1,4 @@
-package com.example.home.bngapp.utilities2;
+package com.example.home.bngapp.utilities;
 
 import android.app.Activity;
 import android.content.Context;

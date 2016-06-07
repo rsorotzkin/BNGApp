@@ -1,4 +1,4 @@
-package com.example.home.bngapp.activities2;
+package com.example.home.bngapp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,15 +10,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.home.bngapp.fragments2.AboutFragment;
-import com.example.home.bngapp.fragments2.BngLoveFragment;
-import com.example.home.bngapp.fragments2.GiftsFragment;
-import com.example.home.bngapp.fragments2.HomeFragment;
-import com.example.home.bngapp.fragments2.MenuFragment;
+import com.example.home.bngapp.fragments.AboutFragment;
+import com.example.home.bngapp.fragments.BngLoveFragment;
+import com.example.home.bngapp.fragments.GiftsFragment;
+import com.example.home.bngapp.fragments.HomeFragment;
+import com.example.home.bngapp.fragments.MenuFragment;
 import com.example.home.bngapp.R;
-import com.example.home.bngapp.utilities2.CustomViewPager;
-import com.example.home.bngapp.utilities2.Util;
-import com.example.home.bngapp.adapters2.ViewPagerAdapter;
+import com.example.home.bngapp.utilities.CustomViewPager;
+import com.example.home.bngapp.utilities.Util;
+import com.example.home.bngapp.adapters.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

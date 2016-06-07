@@ -1,4 +1,4 @@
-package com.example.home.bngapp.adapters2;
+package com.example.home.bngapp.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
