@@ -23,13 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private int[] tabIcons = {
-            R.drawable.ic_home_24dp,
-            R.drawable.ic_leaf_24dp,
-            R.drawable.ic_wallet_giftcard_24dp,
-            R.drawable.ic_favorite_outline_24dp,
-            R.drawable.ic_info_outline_24dp
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -52,12 +45,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 super.onTabSelected(tab);
-                for (int i : tabIcons) {
-                    //if (tab.getPosition() == i)
-//                        Drawable mDrawable = getResources().getDrawable(i);
-//                    mDrawable.setColorFilter(new PorterDuffColorFilter(0xffff00, PorterDuff.Mode.MULTIPLY));
-//                    i.setColorFilter("#fff", PorterDuff.Mode.MULTIPLY);
-                }
+
+
+
             }
 
             @Override
@@ -91,27 +81,27 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabOne.setText("Home");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_home_24dp, 0, 0);
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_one, 0, 0);
         tabLayout.getTabAt(0).setCustomView(tabOne);
 
         TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabTwo.setText("Menu");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_leaf_24dp, 0, 0);
+        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_two, 0, 0);
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
         TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabThree.setText("Gifts");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_wallet_giftcard_24dp, 0, 0);
+        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_three, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabThree);
 
         TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabFour.setText("BngLove");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_favorite_outline_24dp, 0, 0);
+        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_four, 0, 0);
         tabLayout.getTabAt(3).setCustomView(tabFour);
 
         TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabFive.setText("About");
-        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_info_outline_24dp, 0, 0);
+        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_five, 0, 0);
         tabLayout.getTabAt(4).setCustomView(tabFive);
     }
 
