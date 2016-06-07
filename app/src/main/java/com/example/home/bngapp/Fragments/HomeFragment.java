@@ -1,4 +1,4 @@
-package com.example.home.bngapp;
+package com.example.home.bngapp.Fragments;
 
 /**
  * Created by Home on 6/6/2016.
@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.home.bngapp.R;
 
 
 public class HomeFragment extends Fragment{

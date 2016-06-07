@@ -1,25 +1,27 @@
-package com.example.home.bngapp;
+package com.example.home.bngapp.Activities;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.example.home.bngapp.Fragments.AboutFragment;
+import com.example.home.bngapp.Fragments.BngLoveFragment;
+import com.example.home.bngapp.Fragments.GiftsFragment;
+import com.example.home.bngapp.Fragments.HomeFragment;
+import com.example.home.bngapp.Fragments.MenuFragment;
+import com.example.home.bngapp.R;
+import com.example.home.bngapp.Utilities.Util;
+import com.example.home.bngapp.Adapters.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declare controls
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -28,9 +30,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initializeViews();
+        setupTabIcons();
+
+        // send activity reference to Util class
+        Util.setReference(this);
+
+    }
+
+    /**
+     * Function to initialize controls
+     */
+    public void initializeViews() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -39,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setSelectedTabIndicatorHeight(0);
-        setupTabIcons();
-
-
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -52,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new BngLoveFragment(), "BngLove");
         adapter.addFragment(new AboutFragment(), "About");
         viewPager.setAdapter(adapter);
-
 
     }
 
