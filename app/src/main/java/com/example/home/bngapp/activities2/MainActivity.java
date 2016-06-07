@@ -1,4 +1,4 @@
-package com.example.home.bngapp.Activities;
+package com.example.home.bngapp.activities2;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,21 +10,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.home.bngapp.Fragments.AboutFragment;
-import com.example.home.bngapp.Fragments.BngLoveFragment;
-import com.example.home.bngapp.Fragments.GiftsFragment;
-import com.example.home.bngapp.Fragments.HomeFragment;
-import com.example.home.bngapp.Fragments.MenuFragment;
+import com.example.home.bngapp.fragments2.AboutFragment;
+import com.example.home.bngapp.fragments2.BngLoveFragment;
+import com.example.home.bngapp.fragments2.GiftsFragment;
+import com.example.home.bngapp.fragments2.HomeFragment;
+import com.example.home.bngapp.fragments2.MenuFragment;
 import com.example.home.bngapp.R;
-import com.example.home.bngapp.Utilities.Util;
-import com.example.home.bngapp.Adapters.ViewPagerAdapter;
+import com.example.home.bngapp.utilities2.CustomViewPager;
+import com.example.home.bngapp.utilities2.Util;
+import com.example.home.bngapp.adapters2.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     // Declare controls
     private Toolbar toolbar;
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (CustomViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+
+        // disable swiping in viewpager
+        viewPager.setPagingEnabled(false);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

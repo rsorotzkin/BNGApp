@@ -1,4 +1,4 @@
-package com.example.home.bngapp.Fragments;
+package com.example.home.bngapp.fragments2;
 
 /**
  * Created by Home on 6/6/2016.
