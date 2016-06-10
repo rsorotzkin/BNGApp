@@ -62,6 +62,4 @@ public class GiftItems {
         this.image = image;
     }
 
-
-
 }

@@ -2,6 +2,9 @@ package com.example.home.bngapp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -25,22 +28,31 @@ public class MainActivity extends AppCompatActivity {
 
     // Declare controls
     private Toolbar toolbar;
-    private TabLayout tabLayout;
+    public TabLayout tabLayout;
     private CustomViewPager viewPager;
     public GiftDetailsFragment giftDetailsFragment;
+    public GiftsFragment giftsFragment;
+    public ViewPagerAdapter adapter;
+    MenuFragment menuFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // send activity reference to Util class
+        Util.setReference(this);
+
         giftDetailsFragment = new GiftDetailsFragment();
         giftDetailsFragment.setMainActivity(this);
+        giftsFragment = new GiftsFragment();
+        menuFragment = new MenuFragment();
+        menuFragment.setMainActivity(this);
 
         initializeViews();
         setupTabIcons();
 
-        // send activity reference to Util class
-        Util.setReference(this);
+
 
     }
 
@@ -65,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment(), "Home");
         adapter.addFragment(new MenuFragment(), "Menu");
         adapter.addFragment(new GiftsFragment(), "Gifts");
@@ -73,7 +85,24 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new AboutFragment(), "About");
         viewPager.setAdapter(adapter);
 
+
     }
+
+
+
+    public void replaceFragment(Fragment fragment) {
+
+        //invalidateOptionsMenu();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+
+    }
+
+
+
 
     private void setupTabIcons() {
 
