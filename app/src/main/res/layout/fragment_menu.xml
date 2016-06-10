@@ -1,16 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MENU"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+        android:orientation="vertical"
+        android:weightSum="4">
 
-</RelativeLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/delicaciesCoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/delicaciesImageView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:alpha="0.9"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/platters1" />
+
+            <TextView
+                android:id="@+id/delicaciesTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#26ffffff"
+                android:gravity="right"
+                android:padding="8dp"
+                android:text="DELICACIES"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/sweetCollectionCoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="4dp">
+
+            <ImageView
+                android:id="@+id/sweetCollectionImageView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:alpha="0.9"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sweet_collection_platter" />
+
+            <TextView
+                android:id="@+id/sweetCollectionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#26ffffff"
+                android:gravity="right"
+                android:padding="8dp"
+                android:text="SWEET COLLECTION"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/pastaCollectionCoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="4dp">
+
+
+            <ImageView
+                android:id="@+id/pastaCollectionImageView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:alpha="0.9"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pasta_platter" />
+
+            <TextView
+                android:id="@+id/pastaCollectionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#26ffffff"
+                android:gravity="right"
+                android:padding="8dp"
+                android:text="PASTA COLLECTION"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/saladCollectionCoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="4dp">
+
+            <ImageView
+                android:id="@+id/saladCollectionImageView4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:alpha="0.9"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/salad_platter" />
+
+            <TextView
+                android:id="@+id/saladCoolectionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#26ffffff"
+                android:gravity="right"
+                android:padding="8dp"
+                android:text="SALAD COLLECTION"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
+
+</ScrollView>
