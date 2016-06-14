@@ -59,7 +59,7 @@ public class TabLayoutFragment extends Fragment {
 }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new HomeFragment(), "Home");
         adapter.addFragment(new MenuFragment(), "Menu");
         adapter.addFragment(new GiftsFragment(), "Gifts");

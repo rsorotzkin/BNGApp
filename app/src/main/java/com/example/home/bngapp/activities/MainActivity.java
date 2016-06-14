@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         initializeViews();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new TabLayoutFragment()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new TabLayoutFragment()).commit();
 
     }
 

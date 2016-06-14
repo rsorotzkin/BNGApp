@@ -122,8 +122,8 @@ public class AboutFragment extends Fragment{
     View.OnClickListener contactListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(Util.getActivity(), "contact fragment", Toast.LENGTH_LONG).show();
-            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ContactFormFragment).commit();
+            //Toast.makeText(Util.getActivity(), "contact fragment", Toast.LENGTH_LONG).show();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ContactFormFragment()).addToBackStack("null").commit();
         }
     };
 
