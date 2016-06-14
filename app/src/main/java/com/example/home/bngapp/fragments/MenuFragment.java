@@ -5,6 +5,7 @@ package com.example.home.bngapp.fragments;
  */
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,20 +40,23 @@ public class MenuFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_menu, container, false);
-        clickTextView = (TextView) rootView.findViewById(R.id.clickTextView);
-        clickTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.container, new GiftDetailsFragment()).commit();
-//                mainActivity.tabLayout.setVisibility(View.GONE);
-                mainActivity.replaceFragment(new GiftDetailsFragment());
-
-            }
-        });
-        return rootView;
+//        clickTextView = (TextView) rootView.findViewById(R.id.clickTextView);
+//        clickTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//               getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).remove(MenuFragment.this).replace(R.id.container, new GiftDetailsFragment()).commit();
+//
+//
+//            }
+//        });
+//    ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    return rootView;
 
 
     }
+
+
 
 }

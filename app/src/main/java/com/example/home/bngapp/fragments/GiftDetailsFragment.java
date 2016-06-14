@@ -55,8 +55,8 @@ public class GiftDetailsFragment extends Fragment{
         registerListeners();
 
         // set toolbar title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Sunshine Basket");
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Sunshine Basket");
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         return rootView;

@@ -66,7 +66,7 @@ public class GiftsFragment extends Fragment{
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_gifts));
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_gifts));
 
 
         return rootView;

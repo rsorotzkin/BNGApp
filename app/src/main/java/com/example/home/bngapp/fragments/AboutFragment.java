@@ -70,7 +70,7 @@ public class AboutFragment extends Fragment{
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
 
 
         return rootView;
@@ -123,6 +123,7 @@ public class AboutFragment extends Fragment{
         @Override
         public void onClick(View v) {
             Toast.makeText(Util.getActivity(), "contact fragment", Toast.LENGTH_LONG).show();
+            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ContactFormFragment).commit();
         }
     };
 

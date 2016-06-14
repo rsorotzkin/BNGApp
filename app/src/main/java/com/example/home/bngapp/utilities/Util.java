@@ -73,7 +73,7 @@ public class Util extends Activity{
      */
     public static void replaceFragment(Fragment fragment, int tag) {
         // replace fragment in container
-        getActivity().getFragmentManager().beginTransaction().replace(R.id.viewpager,
+        getActivity().getFragmentManager().beginTransaction().replace(R.id.viewPagerContainer,
                 fragment, tag + "").addToBackStack(tag + "").commit();
 
     }

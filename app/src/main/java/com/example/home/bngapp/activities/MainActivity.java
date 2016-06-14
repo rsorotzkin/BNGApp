@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.home.bngapp.fragments.AboutFragment;
 import com.example.home.bngapp.fragments.BngLoveFragment;
@@ -20,6 +22,7 @@ import com.example.home.bngapp.fragments.GiftsFragment;
 import com.example.home.bngapp.fragments.HomeFragment;
 import com.example.home.bngapp.fragments.MenuFragment;
 import com.example.home.bngapp.R;
+import com.example.home.bngapp.fragments.TabLayoutFragment;
 import com.example.home.bngapp.utilities.CustomViewPager;
 import com.example.home.bngapp.utilities.Util;
 import com.example.home.bngapp.adapters.ViewPagerAdapter;
@@ -28,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     // Declare controls
     private Toolbar toolbar;
-    public TabLayout tabLayout;
-    private CustomViewPager viewPager;
+
     public GiftDetailsFragment giftDetailsFragment;
     public GiftsFragment giftsFragment;
-    public ViewPagerAdapter adapter;
+
     MenuFragment menuFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +53,8 @@ public class MainActivity extends AppCompatActivity {
         menuFragment.setMainActivity(this);
 
         initializeViews();
-        setupTabIcons();
 
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new TabLayoutFragment()).addToBackStack(null).commit();
 
     }
 
@@ -64,75 +66,17 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-        viewPager = (CustomViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        // disable swiping in viewpager
-        viewPager.setPagingEnabled(false);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorHeight(0);
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HomeFragment(), "Home");
-        adapter.addFragment(new MenuFragment(), "Menu");
-        adapter.addFragment(new GiftsFragment(), "Gifts");
-        adapter.addFragment(new BngLoveFragment(), "BngLove");
-        adapter.addFragment(new AboutFragment(), "About");
-        viewPager.setAdapter(adapter);
-
-
+        getSupportActionBar().setTitle("BNG");
     }
 
 
-
-    public void replaceFragment(Fragment fragment) {
-
-        //invalidateOptionsMenu();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
-
+    public void showToast() {
+        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
     }
 
 
 
 
-    private void setupTabIcons() {
-
-        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabOne.setText("Home");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_one, 0, 0);
-        tabLayout.getTabAt(0).setCustomView(tabOne);
-        if(!tabLayout.isSelected())
-        tabOne.setSelected(true);
-
-        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabTwo.setText("Menu");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_two, 0, 0);
-        tabLayout.getTabAt(1).setCustomView(tabTwo);
-
-        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabThree.setText("Gifts");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_three, 0, 0);
-        tabLayout.getTabAt(2).setCustomView(tabThree);
-
-        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabFour.setText("BngLove");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_four, 0, 0);
-        tabLayout.getTabAt(3).setCustomView(tabFour);
-
-        TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabFive.setText("About");
-        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tab_five, 0, 0);
-        tabLayout.getTabAt(4).setCustomView(tabFive);
-    }
 
 
     @Override
