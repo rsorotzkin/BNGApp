@@ -5,7 +5,7 @@ package com.example.home.bngapp.fragments;
  */
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -76,6 +76,15 @@ public class AboutFragment extends Fragment{
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // select libraries tab
+        mainActivity.tabLayout.getTabAt(4).select();
+
+    }
+
     public void initializeViews(View rootView) {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
@@ -123,7 +132,7 @@ public class AboutFragment extends Fragment{
         @Override
         public void onClick(View v) {
             //Toast.makeText(Util.getActivity(), "contact fragment", Toast.LENGTH_LONG).show();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ContactFormFragment()).addToBackStack("null").commit();
+            //getActivity().getFragmentManager().beginTransaction().replace(R.id.container, new ContactFormFragment()).addToBackStack("null").commit();
         }
     };
 

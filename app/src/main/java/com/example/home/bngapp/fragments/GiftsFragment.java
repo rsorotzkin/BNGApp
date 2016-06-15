@@ -4,7 +4,7 @@ package com.example.home.bngapp.fragments;
  * Created by Home on 6/6/2016.
  */
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -70,6 +70,15 @@ public class GiftsFragment extends Fragment{
 
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // select libraries tab
+        mainActivity.tabLayout.getTabAt(2).select();
+
     }
 
     public void initializeViews(View rootView) {
