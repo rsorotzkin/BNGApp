@@ -25,6 +25,10 @@ import com.example.home.bngapp.utilities.Util;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class AboutFragment extends Fragment{
 
@@ -37,6 +41,7 @@ public class AboutFragment extends Fragment{
     // Declare controls
     RecyclerView recyclerView;
     LinearLayoutManager llm;
+    @BindView (R.id.contactFab)
     FloatingActionButton contactFab;
 
     // Declare variables
@@ -55,15 +60,13 @@ public class AboutFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
+        ButterKnife.bind(this, rootView);
 
         // Initialize views for this fragment
         initializeViews(rootView);
 
         // Set up recyclerView
         setUpRecyclerView();
-
-        // Register all listeners for controls
-        registerListeners();
 
         // Download data from url
         downloadData();
@@ -87,7 +90,7 @@ public class AboutFragment extends Fragment{
 
     public void initializeViews(View rootView) {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
+        //contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
         contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
 
         llm = new LinearLayoutManager(getActivity().getBaseContext());
@@ -119,20 +122,16 @@ public class AboutFragment extends Fragment{
 
     }
 
-    public void registerListeners() {
-        contactFab.setOnClickListener(contactListener);
 
+    @OnClick(R.id.contactFab)
+    public void submit(FloatingActionButton contactFab) {
+        Util.replaceFragment(new ContactFormFragment(), R.string.fragment_contact);
     }
 
     public void downloadData() {
 
     }
 
-    View.OnClickListener contactListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Util.replaceFragment(new ContactFormFragment(), R.string.fragment_contact);
-        }
-    };
+
 
 }
