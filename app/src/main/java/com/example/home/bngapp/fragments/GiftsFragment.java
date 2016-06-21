@@ -3,6 +3,7 @@ package com.example.home.bngapp.fragments;
 /**
  * Created by Home on 6/6/2016.
  */
+
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ import com.example.home.bngapp.utilities.Util;
 import java.util.ArrayList;
 
 
-public class GiftsFragment extends Fragment{
+public class GiftsFragment extends Fragment {
 
     // Declare activity
     MainActivity mainActivity;
@@ -86,19 +87,19 @@ public class GiftsFragment extends Fragment{
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new GiftsItemsAdapter(getActivity());
         giftItems = new ArrayList<>();
-        items = new GiftItems(1,"SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
+        items = new GiftItems(1, "SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
                 " exquisitely decorated basket");
         giftItems.add(items);
-        items = new GiftItems(2,"SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
+        items = new GiftItems(2, "SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
                 " exquisitely decorated basket");
         giftItems.add(items);
-        items = new GiftItems(3,"SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
+        items = new GiftItems(3, "SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
                 " exquisitely decorated basket");
         giftItems.add(items);
-        items = new GiftItems(4,"SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
+        items = new GiftItems(4, "SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
                 " exquisitely decorated basket");
         giftItems.add(items);
-        items = new GiftItems(5,"SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
+        items = new GiftItems(5, "SUNSHINE BASKET", "$90.00", "An assortment of BNG delicacies, in an" +
                 " exquisitely decorated basket");
         giftItems.add(items);
         adapter.setGiftItemsList(giftItems);

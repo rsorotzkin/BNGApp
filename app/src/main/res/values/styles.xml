@@ -41,4 +41,14 @@
         <item name="android:paddingBottom">6dp</item>
     </style>
 
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/TransparentActionBar</item>
+    </style>
+
+    <style name="TransparentActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>

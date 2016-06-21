@@ -89,8 +89,7 @@ public class GiftsItemsAdapter extends RecyclerView.Adapter<GiftsItemsAdapter.Gi
         giftsItemsViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "hi", Toast.LENGTH_LONG).show();
-                //getSupportFragmentManager().beginTransaction().addToBackStack(null).add(R.id.container, new GiftDetailsFragment()).commit();
+                Util.replaceFragment(new GiftDetailsFragment(), R.string.fragment_gift_details);
 
             }
         });
