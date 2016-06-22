@@ -1,19 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">#00000000</item>
         <item name="colorPrimaryDark">@color/divider</item>
         <item name="colorAccent">@color/primary</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -47,7 +43,7 @@
         <item name="android:actionBarStyle">@style/TransparentActionBar</item>
     </style>
 
-    <style name="TransparentActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <style name="TransparentActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@android:color/transparent</item>
     </style>
 

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class GiftsFragment extends Fragment {
 
     // Declare activity
     MainActivity mainActivity;
+    Toolbar toolbar;
 
     // Declare controls
     RecyclerView recyclerView;
@@ -83,6 +85,13 @@ public class GiftsFragment extends Fragment {
     }
 
     public void initializeViews(View rootView) {
+
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar.setTitle("Gifts");
+        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
+        //toolbar.setElevation();
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new GiftsItemsAdapter(getActivity());

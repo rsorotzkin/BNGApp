@@ -6,6 +6,7 @@ package com.example.home.bngapp.fragments;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.example.home.bngapp.utilities.Util;
 
 public class MenuFragment extends Fragment{
     TextView clickTextView;
+    Toolbar toolbar;
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -52,6 +54,9 @@ public class MenuFragment extends Fragment{
 //            }
 //        });
 //    ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("MENU");
     return rootView;
 
 

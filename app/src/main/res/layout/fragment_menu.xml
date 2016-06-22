@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_weight="1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,5 +145,8 @@
                 android:textSize="14sp" />
         </android.support.design.widget.CoordinatorLayout>
     </LinearLayout>
+    </ScrollView>
 
-</LinearLayout>
+    <include layout="@layout/appbar_layout_transparent"></include>
+
+</RelativeLayout>

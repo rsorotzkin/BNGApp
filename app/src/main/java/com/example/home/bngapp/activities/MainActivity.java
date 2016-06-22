@@ -35,7 +35,7 @@ import java.security.PublicKey;
 public class MainActivity extends AppCompatActivity {
 
     // Declare controls
-    private Toolbar toolbar;
+   //private Toolbar toolbar;
     public static TabLayout tabLayout;
 
     // Declare fragments
@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void initializeViews() {
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setTitle("BNG");
+        //toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        //getSupportActionBar().setTitle("BNG");
         tabLayout = (TabLayout) findViewById(R.id.tabs);
     }
 
