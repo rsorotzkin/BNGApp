@@ -8,15 +8,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.widget.Toolbar;
 
 import com.example.home.bngapp.R;
 import com.example.home.bngapp.activities.MainActivity;
+import com.example.home.bngapp.utilities.Util;
 
 /**
  * Created by Home on 6/10/2016.
  */
 public class ContactFormFragment extends Fragment{
     MainActivity mainActivity;
+    Toolbar toolbar;
 
     public ContactFormFragment() {
         // Required empty public constructor
@@ -32,9 +35,16 @@ public class ContactFormFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_contact_form, container, false);
+        toolbar = (android.support.v7.widget.Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar.setTitle("Contact");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+        ((AppCompatActivity)Util.getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //((AppCompatActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        Util.enableBackButton(toolbar);
         return rootView;
 
 

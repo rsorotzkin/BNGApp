@@ -8,6 +8,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="#fff" />
+        app:titleTextColor="#fff"
+    android:theme="@style/TransparentActionBar"/>
 
 </android.support.design.widget.CoordinatorLayout>

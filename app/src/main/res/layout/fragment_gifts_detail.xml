@@ -1,97 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coordinatorLayout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:clickable="false">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/imageView1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/gifts_item"
-                            android:scaleType="centerCrop" />
-
-                        <ProgressBar
-                            android:id="@+id/imageProgressBar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/activity_horizontal_margin"
-                            android:visibility="invisible" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/DetailTextViews"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine. A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine, A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine"
-                        android:textColor="@color/secondary_text"
-                        android:padding="@dimen/activity_horizontal_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-                    <TextView
-                        android:id="@+id/priceDetailTextViews"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="$90.00"
-                        android:textColor="@color/accent"
-                        android:gravity="end"
-                        android:padding="@dimen/activity_horizontal_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:paddingTop="?attr/actionBarSize">
 
-        <TextView
-            android:id="@+id/imageView7"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/imageView8"
+            <TextView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:alpha="0.4"
+                android:background="@color/primary_light" />
+
+        </LinearLayout>
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:alpha="0.4"
-            android:background="@color/primary_light" />
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:clickable="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="@string/image_description"
+                                android:scaleType="centerCrop"
+
+                                android:src="@drawable/gifts_item" />
+
+                            <ProgressBar
+                                android:id="@+id/imageProgressBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/DetailTextViews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/activity_horizontal_margin"
+                            android:text="A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine. A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine, A royal breakfast for two or three comprised of bagels eggs more that all uo can ever imagine"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/secondary_text" />
+
+                        <TextView
+                            android:id="@+id/priceDetailTextViews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:padding="@dimen/activity_horizontal_margin"
+                            android:text="$90.00"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/accent" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+    <include
+        layout="@layout/appbar_layout"/>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

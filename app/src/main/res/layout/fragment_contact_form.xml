@@ -5,16 +5,29 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/activity_horizontal_margin"
     >
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/contact2"
         android:adjustViewBounds="true"/>
 
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_margin="@dimen/activity_horizontal_margin">
 
         <LinearLayout
@@ -98,6 +111,11 @@
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/appbar_layout_transparent"
+        />
 
 
 </RelativeLayout>

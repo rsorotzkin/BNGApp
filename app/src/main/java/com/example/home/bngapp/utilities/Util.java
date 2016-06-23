@@ -3,8 +3,13 @@ package com.example.home.bngapp.utilities;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.home.bngapp.R;
+
+import java.util.Locale;
 
 /**
  * Created by Home on 6/7/2016.
@@ -77,7 +82,20 @@ public class Util extends Activity{
                 fragment, tag + "").addToBackStack(tag + "").commit();
 
     }
+    /**
+     * @param toolbar - set the icon to this toolbar
+     */
+    public static void enableBackButton(Toolbar toolbar) {
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // pop the backStack
+                activity.getFragmentManager().popBackStack();
+            }
+        });
+
+    }
 
 
 
