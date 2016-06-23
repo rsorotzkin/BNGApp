@@ -5,6 +5,7 @@ package com.example.home.bngapp.fragments;
  */
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,12 @@ import android.view.ViewGroup;
 import com.example.home.bngapp.R;
 import com.example.home.bngapp.activities.MainActivity;
 
+import butterknife.ButterKnife;
+
 
 public class BngLoveFragment extends Fragment{
 MainActivity mainActivity;
+    Toolbar toolbar;
 
     public BngLoveFragment() {
         // Required empty public constructor
@@ -29,7 +33,13 @@ MainActivity mainActivity;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bnglove, container, false);
+      View rootView = inflater.inflate(R.layout.fragment_bnglove, container, false);
+        ButterKnife.bind(this, rootView);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar.setTitle("Gifts");
+        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
+        return rootView;
     }
 
     @Override

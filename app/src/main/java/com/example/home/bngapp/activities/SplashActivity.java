@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.home.bngapp.R;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Home on 6/7/2016.
@@ -29,6 +31,7 @@ public class SplashActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_splash);
 

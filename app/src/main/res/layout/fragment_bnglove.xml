@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="?attr/actionBarSize"
+            android:orientation="vertical">
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -279,7 +292,7 @@
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/servicesCardView3"
+                        android:id="@+id/servicesCardView34"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
@@ -326,6 +339,12 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
-
 </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar_layout"></include>
+
+
+</RelativeLayout>

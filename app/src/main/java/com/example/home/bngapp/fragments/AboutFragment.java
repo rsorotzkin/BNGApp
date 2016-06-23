@@ -4,15 +4,18 @@ package com.example.home.bngapp.fragments;
  * Created by Home on 6/6/2016.
  */
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.home.bngapp.R;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
 public class AboutFragment extends Fragment{
@@ -41,14 +45,16 @@ public class AboutFragment extends Fragment{
     // Declare controls
     RecyclerView recyclerView;
     LinearLayoutManager llm;
+    @Nullable
     @BindView (R.id.contactFab)
     FloatingActionButton contactFab;
+
 
     // Declare variables
     ArrayList<LocationItems> locationItemss;
     LocationItems items;
     LocationItemsAdapter adapter;
-
+    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,14 @@ public class AboutFragment extends Fragment{
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         ButterKnife.bind(this, rootView);
+        ButterKnife.setDebug(true);
+
+
+
+
+        contactFab.setVisibility(View.GONE);
+        contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
+
 
         // Initialize views for this fragment
         initializeViews(rootView);
@@ -71,9 +85,6 @@ public class AboutFragment extends Fragment{
         // Download data from url
         downloadData();
 
-        // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
-        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
 
 
         return rootView;
@@ -89,9 +100,14 @@ public class AboutFragment extends Fragment{
     }
 
     public void initializeViews(View rootView) {
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar.setTitle("About");
+        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         //contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
-        contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
+        //contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
 
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new LocationItemsAdapter(getActivity());
@@ -128,10 +144,17 @@ public class AboutFragment extends Fragment{
         Util.replaceFragment(new ContactFormFragment(), R.string.fragment_contact);
     }
 
+
+
     public void downloadData() {
 
     }
 
 
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        //ButterKnife.unbind(this);
+
+    }
 
 }
