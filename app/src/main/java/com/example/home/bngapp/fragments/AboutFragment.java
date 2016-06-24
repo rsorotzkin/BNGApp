@@ -45,16 +45,20 @@ public class AboutFragment extends Fragment{
     // Declare controls
     RecyclerView recyclerView;
     LinearLayoutManager llm;
+
     @Nullable
     @BindView (R.id.contactFab)
     FloatingActionButton contactFab;
 
+    @Nullable
+    @BindView (R.id.toolbar)
+    Toolbar toolbar;
 
     // Declare variables
     ArrayList<LocationItems> locationItemss;
     LocationItems items;
     LocationItemsAdapter adapter;
-    Toolbar toolbar;
+    //Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,10 +73,10 @@ public class AboutFragment extends Fragment{
         ButterKnife.bind(this, rootView);
         ButterKnife.setDebug(true);
 
+        toolbar.setTitle("About");
+        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
 
-
-
-        contactFab.setVisibility(View.GONE);
         contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
 
 
@@ -100,15 +104,8 @@ public class AboutFragment extends Fragment{
     }
 
     public void initializeViews(View rootView) {
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        toolbar.setTitle("About");
-        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
-        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        //contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
-        //contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
-
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new LocationItemsAdapter(getActivity());
         locationItemss = new ArrayList<>();

@@ -20,12 +20,9 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
@@ -35,6 +32,8 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="02df75362f8fcfed48b0ed1055ee02e5f2f430ad" />
+
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

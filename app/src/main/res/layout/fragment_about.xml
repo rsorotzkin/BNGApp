@@ -22,7 +22,6 @@
 
 
     <include
-        android:id="@+id/appbar"
         layout="@layout/appbar_layout"></include>
 
 </RelativeLayout>
