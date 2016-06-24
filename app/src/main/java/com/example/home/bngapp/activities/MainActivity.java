@@ -44,7 +44,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     // Declare controls
-   //private Toolbar toolbar;
     public static TabLayout tabLayout;
 
     // Declare fragments
@@ -55,17 +54,14 @@ public class MainActivity extends AppCompatActivity {
     public GiftsFragment giftsFragment;
     MenuFragment menuFragment;
 
-
+    // Declare constants
     public static final String TAG = MainActivity.class.getSimpleName();
-
     public static final int REQUEST_TAKE_PHOTO = 0;
     public static final int REQUEST_TAKE_VIDEO = 1;
     public static final int REQUEST_PICK_PHOTO = 2;
     public static final int REQUEST_PICK_VIDEO = 3;
-
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
-
     private Uri mMediaUri;
 
 
@@ -73,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // send activity reference to Util class
         Util.setReference(this);
@@ -88,16 +83,13 @@ public class MainActivity extends AppCompatActivity {
      * Function to initialize controls
      */
     public void initializeViews() {
-
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        //getSupportActionBar().setTitle("BNG");
         tabLayout = (TabLayout) findViewById(R.id.tabs);
     }
 
+    /**
+     * Function to initialize fragments
+     */
     public void initializeFragments() {
-
         homeFragment = new HomeFragment();
         bngLoveFragment = new BngLoveFragment();
         aboutFragment = new AboutFragment();
@@ -255,8 +247,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void takePhoto(){
-       // Toast.makeText(Util.getContext(),"test",Toast.LENGTH_LONG).show();
-
         mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
         if (mMediaUri == null) {
             Toast.makeText(Util.getContext(),
@@ -270,16 +260,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void pickPhoto(){
+        Intent pickPhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        pickPhotoIntent.setType("image/*");
+        startActivityForResult(pickPhotoIntent, REQUEST_PICK_PHOTO);
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_TAKE_PHOTO) {
-                //Intent intent = new Intent(this, ViewImageActivity.class);
-                //intent.setData(mMediaUri);
-                //startActivity(intent);
+            if (requestCode == REQUEST_TAKE_PHOTO || requestCode == REQUEST_PICK_PHOTO) {
+                if (data != null){
+                    mMediaUri = data.getData();
+                }
                 bngLoveFragment.setImage(mMediaUri);
             }
         }

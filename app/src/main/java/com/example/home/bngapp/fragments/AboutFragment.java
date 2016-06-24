@@ -58,7 +58,6 @@ public class AboutFragment extends Fragment{
     ArrayList<LocationItems> locationItemss;
     LocationItems items;
     LocationItemsAdapter adapter;
-    //Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

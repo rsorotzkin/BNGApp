@@ -73,9 +73,9 @@ MainActivity mainActivity;
     }
 
     public void takePhoto(){
-        //((AppCompatActivity)getActivity()).takePhoto();
-       // mainActivity.takePhoto();
-        ((MainActivity)getActivity()).takePhoto();
+
+        //((MainActivity)getActivity()).takePhoto();
+        ((MainActivity)getActivity()).pickPhoto();
     }
 
     @Override
