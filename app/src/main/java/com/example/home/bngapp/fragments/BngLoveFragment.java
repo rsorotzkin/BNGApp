@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,12 @@ MainActivity mainActivity;
     CardView uploadImageCardView;
     ImageView imageView;
     TextView uploadImageTextView;
+
+    LinearLayout facebookLinearLayout;
+    String facebookPackage = "com.facebook.katana";
+    String instagramPackage = "com.instagram.android";
+
+
 
 
     public BngLoveFragment() {
@@ -69,13 +76,20 @@ MainActivity mainActivity;
         imageView = (ImageView)rootView.findViewById(R.id.imageView);
         uploadImageTextView = (TextView)rootView.findViewById(R.id.uploadImageTextView);
        // toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
+        facebookLinearLayout = (LinearLayout) rootView.findViewById(R.id.facebookLayout);
+        facebookLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).shareIntent("Facebook", facebookPackage);
+            }
+        });
         return rootView;
     }
 
+
+
     public void takePhoto(){
         Util.createDialog("Take Photo","Share your photo on BNG","take photo","choose photo",null,"photo","");
-        //((MainActivity)getActivity()).takePhoto();
-        //((MainActivity)getActivity()).pickPhoto();
     }
 
     @Override

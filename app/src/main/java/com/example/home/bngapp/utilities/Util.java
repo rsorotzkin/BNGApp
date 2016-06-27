@@ -123,7 +123,7 @@ public class Util extends Activity{
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (tag) {
-                    case "takePhoto":
+                    case "photo":
                         ((MainActivity)getActivity()).takePhoto();
                         break;
                     default:
@@ -136,7 +136,7 @@ public class Util extends Activity{
         builder.setNegativeButton(negativeButtonText, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (tag.equals("takePhoto")) {
+                if (tag.equals("photo")) {
                     ((MainActivity)getActivity()).pickPhoto();
                 }
             }

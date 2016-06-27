@@ -57,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
     // Declare constants
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final int REQUEST_TAKE_PHOTO = 0;
-    public static final int REQUEST_TAKE_VIDEO = 1;
     public static final int REQUEST_PICK_PHOTO = 2;
-    public static final int REQUEST_PICK_VIDEO = 3;
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
     private Uri mMediaUri;
@@ -134,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tab);
         // adding the view to the tab
         tab.setCustomView(view);
+
         // if position of tab is 0
         if(tab.getPosition() == 0){
             // set tab to be selected
@@ -266,6 +265,40 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(pickPhotoIntent, REQUEST_PICK_PHOTO);
     }
 
+    public void shareIntent(String packageName, String packageUri) {
+
+//
+//        Intent intent = getPackageManager().getLaunchIntentForPackage(packageUri);
+//        if (intent != null) {
+//            // The application exists
+//            Intent shareIntent = new Intent();
+//            Uri screenshotUri = mMediaUri;
+//            shareIntent.setAction(Intent.ACTION_SEND);
+//            shareIntent.setPackage(packageUri);
+//            shareIntent.setType("image/png");
+//            shareIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+//
+////            shareIntent.putExtra(android.content.Intent.EXTRA_TITLE, "share photo on facebook");
+////            shareIntent.putExtra(Intent.EXTRA_TEXT, "description");
+//            // Start the specific social application
+//            startActivity(shareIntent);
+//        } else {
+//            // The application does not exist
+//            // Open GooglePlay or use the default system picker
+//            Toast.makeText(this, packageName + " is not installed on your device", Toast.LENGTH_LONG).show();
+//        }
+
+
+
+
+
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        Uri screenshotUri = mMediaUri;
+
+        sharingIntent.setType("image/png");
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+        startActivity(Intent.createChooser(sharingIntent, "Share image using"));
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
