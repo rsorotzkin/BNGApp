@@ -73,9 +73,9 @@ MainActivity mainActivity;
     }
 
     public void takePhoto(){
-
+        Util.createDialog("Take Photo","Share your photo on BNG","take photo","choose photo",null,"photo","");
         //((MainActivity)getActivity()).takePhoto();
-        ((MainActivity)getActivity()).pickPhoto();
+        //((MainActivity)getActivity()).pickPhoto();
     }
 
     @Override

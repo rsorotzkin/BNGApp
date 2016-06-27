@@ -3,11 +3,14 @@ package com.example.home.bngapp.utilities;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.home.bngapp.R;
+import com.example.home.bngapp.activities.MainActivity;
 
 import java.util.Locale;
 
@@ -97,9 +100,53 @@ public class Util extends Activity{
 
     }
 
+    /**
+     * @param title              - set dialog title
+     * @param message            - set dialog message
+     * @param positiveButtonText - set text for positive button in dialog
+     * @param negativeButtonText - set text for negative button in dialog
+     * @param neutralButtonText - set text for neutral button in dialog
+     * @param tag                - set tag for listener in dialog
+     * @param param              - set param for listener in dialog
+     */
+    public static void createDialog(String title, String message, String positiveButtonText,
+                                    String negativeButtonText, String neutralButtonText, final String tag, final String param) {
+        // initialize builder and set it to AlertDialog.Builder of style AppCompatAlertDialogStyle
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(Util.getActivity(), R.style.AppCompatAlertDialogStyle);
+        // set title of builder with title param
+        builder.setTitle(title);
+        // set message of builder message param
+        builder.setMessage(message);
+        // set positive button of builder
+        builder.setPositiveButton(positiveButtonText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (tag) {
+                    case "takePhoto":
+                        ((MainActivity)getActivity()).takePhoto();
+                        break;
+                    default:
+                        break;
+                }
 
+            }
+        });
 
+        builder.setNegativeButton(negativeButtonText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (tag.equals("takePhoto")) {
+                    ((MainActivity)getActivity()).pickPhoto();
+                }
+            }
+        });
+        // set negative button of builder with negativeButtonText param
+        builder.setNeutralButton(neutralButtonText, null);
+        // show builder
+        builder.show();
 
+    }
 
 
 }
