@@ -5,6 +5,7 @@ package com.example.home.bngapp.fragments;
  */
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,9 @@ import com.example.home.bngapp.utilities.Util;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class GiftDetailsFragment extends Fragment{
 
@@ -30,6 +34,9 @@ public class GiftDetailsFragment extends Fragment{
 
     // Declare activity
     MainActivity mainActivity;
+
+    @Nullable
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
 
@@ -47,19 +54,15 @@ public class GiftDetailsFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_gifts_detail, container, false);
-
+        ButterKnife.bind(this, rootView);
+        ButterKnife.setDebug(true);
         // Initialize views for this fragment
         initializeViews(rootView);
 
         // Set up recyclerView
         setUpRecyclerView();
 
-        // Register all listeners for controls
-        registerListeners();
-        toolbar = (android.support.v7.widget.Toolbar) rootView.findViewById(R.id.toolbar);
         toolbar.setTitle("Sunshine Basket");
-        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
-        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.primary));
         ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,9 +82,6 @@ public class GiftDetailsFragment extends Fragment{
 
     }
 
-    public void registerListeners() {
-
-    }
 
 
 }

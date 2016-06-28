@@ -6,6 +6,7 @@ package com.example.home.bngapp.fragments;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,14 +25,22 @@ import com.example.home.bngapp.utilities.Util;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class GiftsFragment extends Fragment {
 
     // Declare activity
     MainActivity mainActivity;
+
+    @Nullable
+    @BindView (R.id.toolbar)
     Toolbar toolbar;
 
     // Declare controls
+    @Nullable
+    @BindView (R.id.recyclerView)
     RecyclerView recyclerView;
     LinearLayoutManager llm;
 
@@ -55,21 +64,17 @@ public class GiftsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_gifts, container, false);
 
+        ButterKnife.bind(this, rootView);
+        ButterKnife.setDebug(true);
+
         // Initialize views for this fragment
         initializeViews(rootView);
 
         // Set up recyclerView
         setUpRecyclerView();
 
-        // Register all listeners for controls
-        registerListeners();
-
         // Download data from url
         downloadData();
-
-        // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
-        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_gifts));
 
 
         return rootView;
@@ -86,13 +91,11 @@ public class GiftsFragment extends Fragment {
 
     public void initializeViews(View rootView) {
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         toolbar.setTitle("Gifts");
         toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
         toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
         //toolbar.setElevation();
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new GiftsItemsAdapter(getActivity());
         giftItems = new ArrayList<>();
@@ -128,10 +131,7 @@ public class GiftsFragment extends Fragment {
 
     }
 
-    public void registerListeners() {
 
-
-    }
 
     public void downloadData() {
 

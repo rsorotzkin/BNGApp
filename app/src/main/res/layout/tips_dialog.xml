@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tip"
+                android:adjustViewBounds="true"/>
+
+
+        </RelativeLayout>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:text="How to Brew your Coffee to Perfection"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:textSize="14dp"
+            android:text="Try this new blintz dflajflajfllaskdjfaljdflkajd tip............dhfakjdlajldfja;ljfda;ljdlajkdaf;ldkjfaldjkflalsdkjfaldsjfaldjlajdfla..................ksdfaksjdfalkjlkdsja;lkjflkaflkjal"/>
+        <TextView
+            android:background="@color/secondary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="0.5sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="16"
+            android:textSize="14dp"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_favorite_24dp"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:textSize="14dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="5-09-2016"/>
+
+        <ImageView
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
