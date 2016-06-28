@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(pickPhotoIntent, REQUEST_PICK_PHOTO);
     }
 
-    public void shareIntent(String packageName, String packageUri) {
+    public void shareIntent() {
 
 //
 //        Intent intent = getPackageManager().getLaunchIntentForPackage(packageUri);

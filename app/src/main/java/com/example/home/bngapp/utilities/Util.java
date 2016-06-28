@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
@@ -145,6 +147,15 @@ public class Util extends Activity{
         builder.setNeutralButton(neutralButtonText, null);
         // show builder
         builder.show();
+
+    }
+
+    /**
+     * Function to open link of article in browser
+     */
+    public static void openUrlInBrowser(String url) {
+        getActivity().startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(url)));
 
     }
 
