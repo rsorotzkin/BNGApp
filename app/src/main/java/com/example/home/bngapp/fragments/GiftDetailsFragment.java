@@ -6,6 +6,7 @@ package com.example.home.bngapp.fragments;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -63,7 +64,7 @@ public class GiftDetailsFragment extends Fragment{
         setUpRecyclerView();
 
         toolbar.setTitle("Sunshine Basket");
-        toolbar.setSubtitleTextColor(getResources().getColor(R.color.primary));
+        toolbar.setSubtitleTextColor(ContextCompat.getColor(Util.getContext(), R.color.primary));
         ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Util.enableBackButton(toolbar);

@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class ContactFormFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         ButterKnife.setDebug(true);
         toolbar.setTitle("Contact");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+
         ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

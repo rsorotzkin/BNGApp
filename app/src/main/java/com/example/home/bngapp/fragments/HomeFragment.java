@@ -7,6 +7,7 @@ package com.example.home.bngapp.fragments;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class HomeFragment extends Fragment {
         ButterKnife.setDebug(true);
 
         toolbar.setTitle("BNG");
+        toolbar.setTitleTextColor(ContextCompat.getColor(Util.getContext(), R.color.primary));
 
         return rootView;
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -73,8 +74,9 @@ public class AboutFragment extends Fragment{
         ButterKnife.setDebug(true);
 
         toolbar.setTitle("About");
-        toolbar.setBackgroundColor(getResources().getColor(R.color.icons));
-        toolbar.setTitleTextColor(getResources().getColor(R.color.primary));
+        toolbar.setTitleTextColor(ContextCompat.getColor(Util.getContext(), R.color.primary));
+        toolbar.setBackgroundColor(ContextCompat.getColor(Util.getContext(), R.color.icons));
+
 
         contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
 
