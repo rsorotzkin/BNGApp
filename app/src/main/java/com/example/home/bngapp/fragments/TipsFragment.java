@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -56,6 +57,9 @@ public class TipsFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         ButterKnife.setDebug(true);
         toolbar.setTitle("Tip of the Day");
+        ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Util.enableBackButton(toolbar);
 
 
         return rootView;

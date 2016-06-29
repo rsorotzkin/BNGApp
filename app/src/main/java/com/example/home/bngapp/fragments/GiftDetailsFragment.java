@@ -63,8 +63,7 @@ public class GiftDetailsFragment extends Fragment{
         // Set up recyclerView
         setUpRecyclerView();
 
-        toolbar.setTitle("Sunshine Basket");
-        toolbar.setSubtitleTextColor(ContextCompat.getColor(Util.getContext(), R.color.primary));
+        toolbar.setTitle("Sunshine Basket");;
         ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Util.enableBackButton(toolbar);

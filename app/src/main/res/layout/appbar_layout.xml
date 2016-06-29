@@ -14,7 +14,8 @@
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/ToolbarColoredBackArrow"
             android:background="#fff"
-            app:titleTextColor="@color/primary" />
+            app:titleTextColor="@color/primary"
+            app:subtitleTextColor="@color/primary"/>
 
     </android.support.design.widget.AppBarLayout>
 

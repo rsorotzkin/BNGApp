@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:titleTextColor="#fff"
+        app:subtitleTextColor="@color/icons"
     android:theme="@style/TransparentActionBar"/>
 
 </android.support.design.widget.CoordinatorLayout>
