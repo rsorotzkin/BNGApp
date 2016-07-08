@@ -3,6 +3,7 @@ package com.example.home.bngapp.fragments;
 /**
  * Created by Home on 6/6/2016.
  */
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -16,14 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.home.bngapp.R;
 import com.example.home.bngapp.activities.MainActivity;
-import com.example.home.bngapp.adapters.GiftsItemsAdapter;
 import com.example.home.bngapp.adapters.LocationItemsAdapter;
-import com.example.home.bngapp.classes.GiftItems;
 import com.example.home.bngapp.classes.LocationItems;
 import com.example.home.bngapp.utilities.Util;
 
@@ -32,14 +29,14 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 
-public class AboutFragment extends Fragment{
+public class AboutFragment extends Fragment {
 
     public AboutFragment() {
         // Required empty public constructor
     }
+
     // Declare activity
     MainActivity mainActivity;
 
@@ -48,11 +45,11 @@ public class AboutFragment extends Fragment{
     LinearLayoutManager llm;
 
     @Nullable
-    @BindView (R.id.contactFab)
+    @BindView(R.id.contactFab)
     FloatingActionButton contactFab;
 
     @Nullable
-    @BindView (R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
     // Declare variables
@@ -73,11 +70,9 @@ public class AboutFragment extends Fragment{
         ButterKnife.bind(this, rootView);
         ButterKnife.setDebug(true);
 
+        // set toolbar title
         toolbar.setTitle("About");
-        toolbar.setTitleTextColor(ContextCompat.getColor(Util.getContext(), R.color.primary));
-        toolbar.setBackgroundColor(ContextCompat.getColor(Util.getContext(), R.color.icons));
-
-
+        // set fab color
         contactFab.setBackgroundColor(getResources().getColor(R.color.primary));
 
 
@@ -89,7 +84,6 @@ public class AboutFragment extends Fragment{
 
         // Download data from url
         downloadData();
-
 
 
         return rootView;
@@ -110,13 +104,13 @@ public class AboutFragment extends Fragment{
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         adapter = new LocationItemsAdapter(getActivity());
         locationItemss = new ArrayList<>();
-        items = new LocationItems(1,"5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 2");
+        items = new LocationItems(1, "5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 2");
         locationItemss.add(items);
-        items = new LocationItems(1,"5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 1");
+        items = new LocationItems(1, "5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 1");
         locationItemss.add(items);
-        items = new LocationItems(1,"5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 3");
+        items = new LocationItems(1, "5702 18TH AVENUE", "BROOKLYN, NY 11204", "718.256.6656 ext 3");
         locationItemss.add(items);
-        items = new LocationItems(1,"BAGELS N GREENS", "CALL CENTER", "718.256.6656 ext 0");
+        items = new LocationItems(1, "BAGELS N GREENS", "CALL CENTER", "718.256.6656 ext 0");
         locationItemss.add(items);
 
         adapter.setLocatinItemsList(locationItemss);
@@ -143,13 +137,13 @@ public class AboutFragment extends Fragment{
     }
 
 
-
     public void downloadData() {
 
     }
 
 
-    @Override public void onDestroyView() {
+    @Override
+    public void onDestroyView() {
         super.onDestroyView();
         //ButterKnife.unbind(this);
 

@@ -68,24 +68,31 @@
                     android:layout_gravity="bottom"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:gravity="center"
                     android:layout_gravity="center_horizontal|bottom">
                     <ImageView
+                        android:id="@+id/callImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:padding="16dp"
                         android:src="@drawable/ic_local_phone" />
                     <ImageView
+                        android:id="@+id/navigationImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
+                        android:layout_weight="1"
                         android:src="@drawable/ic_location_on_black_24dp"/>
                     <ImageView
+                        android:id="@+id/shareImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
+                        android:layout_weight="1"
                         android:src="@drawable/ic_share"/>
 
                 </LinearLayout>
@@ -105,7 +112,7 @@
 
 
                     <ImageView
-                        android:id="@+id/basketImageView"
+                        android:id="@+id/locationImageView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="end"

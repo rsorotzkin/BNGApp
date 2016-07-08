@@ -56,9 +56,11 @@ public class TipsFragment extends Fragment {
 
         ButterKnife.bind(this, rootView);
         ButterKnife.setDebug(true);
+        // set toolbar title
         toolbar.setTitle("Tip of the Day");
+        // set back navigation to toolbar
         ((AppCompatActivity) Util.getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) Util.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Util.enableBackButton(toolbar);
 
 
@@ -78,15 +80,12 @@ public class TipsFragment extends Fragment {
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Util.getContext(), "share intent", Toast.LENGTH_LONG).show();
-
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 //Uri screenshotUri = ;
-
                 shareIntent.setType("image/png");
                 //shareIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
                 shareIntent.putExtra(android.content.Intent.EXTRA_TITLE, "text goes here");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "text extra goes here");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "bng tip of the day");
                 startActivity(Intent.createChooser(shareIntent, "Share image using"));
             }
         });

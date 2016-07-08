@@ -15,6 +15,7 @@ import com.example.home.bngapp.R;
 import com.example.home.bngapp.activities.MainActivity;
 import com.example.home.bngapp.classes.GiftItems;
 import com.example.home.bngapp.classes.LocationItems;
+import com.example.home.bngapp.utilities.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,12 +81,28 @@ public class LocationItemsAdapter extends RecyclerView.Adapter<LocationItemsAdap
         locationItemsViewHolder.locationTitle.setText(items.getTitle());
         locationItemsViewHolder.locationZip.setText(items.getZip());
         locationItemsViewHolder.locationPhone.setText(items.getPhone());
-        locationItemsViewHolder.basketImageView.setImageResource(R.drawable.boropark_location);
+        locationItemsViewHolder.locationImageView.setImageResource(R.drawable.boropark_location);
 
-        locationItemsViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+        locationItemsViewHolder.navigationImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "hi", Toast.LENGTH_LONG).show();
+                Util.navigationIntent(items.getTitle() + " " + items.getZip());
+
+            }
+        });
+
+        locationItemsViewHolder.callImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Util.callIntent("718-256-6656");
+
+            }
+        });
+
+        locationItemsViewHolder.shareImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Util.share(items.getTitle() + " " + items.getZip() + " " + items.getPhone());
 
             }
         });
@@ -109,9 +126,12 @@ public class LocationItemsAdapter extends RecyclerView.Adapter<LocationItemsAdap
     // this will store the references to our view
     public class LocationItemsViewHolder extends RecyclerView.ViewHolder {
         protected TextView locationTitle,  locationPhone, locationZip;
-        public ImageView basketImageView;
+        public ImageView locationImageView;
         public ProgressBar imageProgressBar;
         public CardView cardView;
+        public ImageView navigationImageView;
+        public ImageView shareImageView;
+        public ImageView callImageView;
 
         public LocationItemsViewHolder(View v) {
             super(v);
@@ -119,9 +139,13 @@ public class LocationItemsAdapter extends RecyclerView.Adapter<LocationItemsAdap
             locationTitle = (TextView) v.findViewById(R.id.locationTitle);
             locationZip = (TextView) v.findViewById(R.id.locationZip);
             locationPhone = (TextView) v.findViewById(R.id.locationPhone);
-            basketImageView = (ImageView) v.findViewById(R.id.basketImageView);
+            locationImageView = (ImageView) v.findViewById(R.id.locationImageView);
             imageProgressBar = (ProgressBar) v.findViewById(R.id.imageProgressBar);
             cardView = (CardView) v.findViewById(R.id.card_view);
+            navigationImageView = (ImageView) v.findViewById(R.id.navigationImageView);
+            shareImageView = (ImageView) v.findViewById(R.id.shareImageView);
+            callImageView = (ImageView) v.findViewById(R.id.callImageView);
+
         }
     }
 }
