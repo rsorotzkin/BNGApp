@@ -31,6 +31,15 @@ public class HomeFragment extends Fragment {
     @Nullable
     @BindView(R.id.bngTodayCardView)
     CardView bngTodayCardView;
+    @Nullable
+    @BindView(R.id.springMenuCardView)
+    CardView springMenuCardView;
+    @Nullable
+    @BindView(R.id.corporateCardView)
+    CardView corporateCardView;
+    @Nullable
+    @BindView(R.id.giftCardView)
+    CardView giftCardView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -58,8 +67,20 @@ public class HomeFragment extends Fragment {
 
 
     @OnClick(R.id.bngTodayCardView)
-    void onSubmit() {
+    void onSubmitTips() {
         Util.replaceFragment(new TipsFragment(), R.string.fragment_home);
+    }
+    @OnClick(R.id.springMenuCardView)
+    void onSubmitMenu() {
+        Util.replaceFragment(new MenuFragment(), R.string.fragment_home);
+    }
+    @OnClick(R.id.corporateCardView)
+    void onSubmitCorporate() {
+        Util.replaceFragment(new MenuFragment(), R.string.fragment_home);
+    }
+    @OnClick(R.id.giftCardView)
+    void onSubmitGifts() {
+        Util.replaceFragment(new GiftsFragment(), R.string.fragment_home);
     }
 
 

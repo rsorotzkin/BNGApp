@@ -1,29 +1,18 @@
 package com.example.home.bngapp.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.home.bngapp.fragments.AboutFragment;
 import com.example.home.bngapp.fragments.BngLoveFragment;
 import com.example.home.bngapp.fragments.GiftDetailsFragment;
@@ -31,13 +20,9 @@ import com.example.home.bngapp.fragments.GiftsFragment;
 import com.example.home.bngapp.fragments.HomeFragment;
 import com.example.home.bngapp.fragments.MenuFragment;
 import com.example.home.bngapp.R;
-import com.example.home.bngapp.utilities.CustomViewPager;
 import com.example.home.bngapp.utilities.Util;
-import com.example.home.bngapp.adapters.ViewPagerAdapter;
-
 import java.io.File;
 import java.io.IOException;
-import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -244,61 +229,58 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    /**
+     * Function to takePhoto
+     */
     public void takePhoto(){
+        // initializing mMediaUri
         mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+        // if mMediaUri is null
         if (mMediaUri == null) {
+            // show message
             Toast.makeText(Util.getContext(),
                     "There was a problem accessing your device's external storage.",
                     Toast.LENGTH_LONG).show();
         }
         else {
+            // instantiate takePhotoIntent
             Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            // add mMediaUri to intent
             takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri);
+            // start intent
             startActivityForResult(takePhotoIntent, REQUEST_TAKE_PHOTO);
         }
     }
 
+    /**
+     * Function to pick a photo
+     */
     public void pickPhoto(){
+        // instantiate pickPhotoIntent
         Intent pickPhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        // set type
         pickPhotoIntent.setType("image/*");
+        // start intent
         startActivityForResult(pickPhotoIntent, REQUEST_PICK_PHOTO);
     }
 
+    /**
+     * Function to share image though an intent
+     */
     public void shareIntent() {
-
-//
-//        Intent intent = getPackageManager().getLaunchIntentForPackage(packageUri);
-//        if (intent != null) {
-//            // The application exists
-//            Intent shareIntent = new Intent();
-//            Uri screenshotUri = mMediaUri;
-//            shareIntent.setAction(Intent.ACTION_SEND);
-//            shareIntent.setPackage(packageUri);
-//            shareIntent.setType("image/png");
-//            shareIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-//
-////            shareIntent.putExtra(android.content.Intent.EXTRA_TITLE, "share photo on facebook");
-////            shareIntent.putExtra(Intent.EXTRA_TEXT, "description");
-//            // Start the specific social application
-//            startActivity(shareIntent);
-//        } else {
-//            // The application does not exist
-//            // Open GooglePlay or use the default system picker
-//            Toast.makeText(this, packageName + " is not installed on your device", Toast.LENGTH_LONG).show();
-//        }
-
-
-
-
-
+        // instantiate sharingIntent
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        // assign mMediaUri to screenshotUri
         Uri screenshotUri = mMediaUri;
 
+        // set type
         sharingIntent.setType("image/png");
+        // add screenshotUri to intent
         sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+        // start intent
         startActivity(Intent.createChooser(sharingIntent, "Share image using"));
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
